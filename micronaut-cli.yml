@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: mn.data.pg
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, data, data-jpa, docker, file-watch, flyway, graalvm, gradle, hibernate-jpa, http-client, java, java-application, jdbc-hikari, logback, netty-server, postgres, readme, security-annotations, security-jwt, shade, spock, testcontainers, yaml]
