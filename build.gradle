@@ -8,6 +8,12 @@ plugins {
 version "0.1"
 group "mn.data.pg"
 
+ext {
+    micronautVersion = "2.0.0.RC1"
+    lombokVersion = "1.18.12"
+    postgresVersion= "42.2.13"
+}
+
 repositories {
     mavenCentral()
     jcenter()
@@ -19,6 +25,12 @@ configurations {
 }
 
 dependencies {
+
+    //tag::lombok
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    //end::lombok
+
     annotationProcessor(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
@@ -40,7 +52,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-hibernate-jpa")
     implementation("io.micronaut.security:micronaut-security-jwt")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly "org.postgresql:postgresql:$postgresVersion"
     testImplementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("io.micronaut:micronaut-inject-groovy")
     testImplementation("org.spockframework:spock-core") {
