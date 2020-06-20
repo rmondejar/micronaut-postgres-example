@@ -1,9 +1,6 @@
 package mn.data.pg.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -15,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
+@SequenceGenerator(name="HIBERNATE_SEQUENCE", initialValue=4)
 @Entity(name="USER_DATA")
 public class User {
 

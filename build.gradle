@@ -3,6 +3,7 @@ plugins {
     id "groovy"
     id "com.github.johnrengelman.shadow" version "6.0.0"
     id "application"
+    id 'com.adarshr.test-logger' version '2.0.0'
 }
 
 version "0.1"
@@ -70,6 +71,23 @@ mainClassName = "mn.data.pg.Application"
 // use JUnit 5 platform
 test {
     useJUnitPlatform()
+    testlogger {
+        theme 'mocha'
+        showExceptions true
+        showStackTraces true
+        showFullStackTraces false
+        showCauses true
+        slowThreshold 2000
+        showSummary true
+        showSimpleNames false
+        showPassed true
+        showSkipped true
+        showFailed true
+        showStandardStreams false
+        showPassedStandardStreams true
+        showSkippedStandardStreams true
+        showFailedStandardStreams true
+    }
 }
 
 java {

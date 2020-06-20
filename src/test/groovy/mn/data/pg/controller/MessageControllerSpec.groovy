@@ -1,7 +1,10 @@
 package mn.data.pg.controller
 
+import java.time.LocalDateTime
+
 import com.nimbusds.jwt.JWTParser
 import com.nimbusds.jwt.SignedJWT
+
 import io.micronaut.context.ApplicationContext
 import io.micronaut.http.HttpHeaders
 import io.micronaut.http.HttpRequest
@@ -11,12 +14,12 @@ import io.micronaut.http.client.RxHttpClient
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.security.authentication.UsernamePasswordCredentials
 import io.micronaut.security.token.jwt.render.BearerAccessRefreshToken
-import mn.data.pg.dtos.MessageDto
+
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 import spock.lang.Specification
 
-import java.time.LocalDate
+import mn.data.pg.dtos.MessageDto
 
 class MessageControllerSpec extends Specification {
 
@@ -86,7 +89,6 @@ class MessageControllerSpec extends Specification {
         HttpRequest requestWithAuthorization = HttpRequest.POST('/messages', content).header(HttpHeaders.AUTHORIZATION, "Bearer $validToken")
         HttpResponse<MessageDto> response = client.toBlocking().exchange(requestWithAuthorization, MessageDto)
 
-
         then: 'The user\'s message is posted correctly'
         noExceptionThrown()
         response.status == HttpStatus.CREATED
@@ -96,7 +98,7 @@ class MessageControllerSpec extends Specification {
         response.body().content
         response.body().content == content
         response.body().creationDate
-        response.body().creationDate == LocalDate.now()
+        response.body().creationDate < LocalDateTime.now()
 
 
         when: 'recover messages of the user again'

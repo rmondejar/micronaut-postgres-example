@@ -1,6 +1,6 @@
 package mn.data.pg.domain;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -9,12 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-@Entity
+@SequenceGenerator(name="HIBERNATE_SEQUENCE", initialValue=4)
+@Entity(name="MESSAGE")
 public class Message {
 
     @Id
@@ -27,9 +29,11 @@ public class Message {
     private String content;
 
     @Column(name="CREATION_DATE")
-    private Instant creationDate;
+    @CreationTimestamp
+    private LocalDateTime creationDate;
 
-    @Column(name="USER_REF")
-    private String userRef;
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "USER_REF")
+    private User userRef;
 
 }

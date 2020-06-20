@@ -11,6 +11,6 @@ import mn.data.pg.domain.User;
 
 @Repository
 public interface MessageRepository extends PageableRepository<Message, UUID> {
-    List<Message> findAllByUserRef(String username);
+    List<Message> findAllByUserRef(User user);
 }
 

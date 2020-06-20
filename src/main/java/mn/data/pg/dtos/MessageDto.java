@@ -1,6 +1,6 @@
 package mn.data.pg.dtos;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,8 +10,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import io.micronaut.core.annotation.Introspected;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +23,7 @@ public class MessageDto {
     @NotBlank
     private String content;
     @NotNull
-    private Instant creationDate;
+    private LocalDateTime creationDate;
     @NotNull
     private UserDto user;
 
