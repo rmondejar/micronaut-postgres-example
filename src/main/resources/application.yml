@@ -13,7 +13,6 @@ datasources:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: 'sa'
-    schema-generate: CREATE_DROP
     dialect: POSTGRES
 
 ---
@@ -23,6 +22,8 @@ jpa:
       - 'mn.data.pg.domain'
     properties:
       hibernate:
+        bytecode:
+          provider: none
         hbm2ddl:
           auto: validate
         show_sql: false

@@ -13,6 +13,7 @@ ext {
     micronautVersion = "2.0.0.RC1"
     lombokVersion = "1.18.12"
     postgresVersion= "42.2.13"
+    testcontainersVersion="1.14.3"
 }
 
 repositories {
@@ -60,7 +61,7 @@ dependencies {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
     testImplementation("io.micronaut.test:micronaut-test-spock")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
+    testImplementation(platform("org.testcontainers:testcontainers-bom:$testcontainersVersion"))
     testRuntimeOnly("org.testcontainers:postgresql")
 }
 
@@ -91,8 +92,8 @@ test {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion('11')
-    targetCompatibility = JavaVersion.toVersion('11')
+    sourceCompatibility = JavaVersion.toVersion('8')
+    targetCompatibility = JavaVersion.toVersion('8')
 }
 
 tasks.withType(JavaCompile) {
