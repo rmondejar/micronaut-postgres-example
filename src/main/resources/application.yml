@@ -18,8 +18,6 @@ datasources:
 ---
 jpa:
   default:
-    packages-to-scan:
-      - 'mn.data.pg.domain'
     properties:
       hibernate:
         bytecode:
@@ -31,7 +29,7 @@ jpa:
 flyway:
   datasources:
     default:
-      locations: classpath:migrations
+      locations: classpath:db/migration
 
 ---
 micronaut:

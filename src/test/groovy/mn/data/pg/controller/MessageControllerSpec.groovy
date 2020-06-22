@@ -1,6 +1,6 @@
 package mn.data.pg.controller
 
-import java.time.LocalDateTime
+import java.time.Instant
 
 import com.nimbusds.jwt.JWTParser
 import com.nimbusds.jwt.SignedJWT
@@ -98,7 +98,7 @@ class MessageControllerSpec extends Specification {
         response.body().content
         response.body().content == content
         response.body().creationDate
-        response.body().creationDate < LocalDateTime.now()
+        response.body().creationDate < Instant.now()
 
 
         when: 'recover messages of the user again'

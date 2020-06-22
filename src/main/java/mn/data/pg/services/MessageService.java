@@ -1,5 +1,6 @@
 package mn.data.pg.services;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -46,7 +47,7 @@ public class MessageService {
     public Optional<MessageDto> create(String content, String username) {
 
          return userRepository.findByUsername(username).map(user ->
-                                messageRepository.save(Message.builder().content(content).userRef(user).build()))
+                                messageRepository.save(Message.builder().content(content).userRef(user).creationDate(Instant.now()).build()))
                                 .map(messageMapper::toDto);
     }
 }

@@ -1,6 +1,6 @@
 package mn.data.pg.domain;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,8 +28,7 @@ public class Message {
     private String content;
 
     @Column(name="CREATION_DATE")
-    @CreationTimestamp
-    private LocalDateTime creationDate;
+    private Instant creationDate;
 
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "USER_REF")

@@ -1,11 +1,12 @@
 package mn.data.pg.dtos;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.micronaut.core.annotation.Introspected;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 @JsonIgnoreProperties({"user"})
+@Introspected
 public class MessageDto {
 
     @NotNull
@@ -23,7 +25,7 @@ public class MessageDto {
     @NotBlank
     private String content;
     @NotNull
-    private LocalDateTime creationDate;
+    private Instant creationDate;
     @NotNull
     private UserDto user;
 
