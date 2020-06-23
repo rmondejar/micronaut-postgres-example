@@ -1,7 +1,7 @@
 # micronaut-postgres-example
 Micronaut 2 example app with  Postgres, Flyway, TestContainers, and GraalVM
 
-Story: [Creating a native image with Micronaut 2 and a complete database tooling](https://)
+Story: [Creating a native image with Micronaut 2 and PostgreSQL](https://medium.com/@ruuben/creating-a-native-image-with-micronaut-2-and-postgresql-3574a6d52946?sk=1d22c358529476ee35d34514c40922ae)
 
 ### Base project
 
