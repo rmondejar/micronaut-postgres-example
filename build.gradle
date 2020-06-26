@@ -10,7 +10,7 @@ version "0.1"
 group "mn.data.pg"
 
 ext {
-    micronautVersion = "2.0.0.RC1"
+    micronautVersion = "2.0.0"
     lombokVersion = "1.18.12"
     postgresVersion= "42.2.13"
     testcontainersVersion="1.14.3"
